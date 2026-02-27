@@ -1,0 +1,12 @@
+import api from './axios';
+export const getOrdersAPI = (params) => api.get('/orders', { params });
+export const getOrderAPI = (id) => api.get(`/orders/${id}`);
+export const createOrderAPI = (data) => api.post('/orders', data);
+export const refundOrderAPI = (id) => api.patch(`/orders/${id}/refund`);
+export const getInvoiceAPI = (id) => api.get(`/orders/${id}/invoice`);
+export const getTodayOrdersAPI = () => api.get('/orders/today');
+export const getUsersAPI = (params) => api.get('/users', { params });
+export const createUserAPI = (data) => api.post('/users', data);
+export const updateUserAPI = (id, data) => api.put(`/users/${id}`, data);
+export const deleteUserAPI = (id) => api.delete(`/users/${id}`);
+export const toggleUserAPI = (id) => api.patch(`/users/${id}/toggle`);
