@@ -83,6 +83,21 @@ export default function Navbar({ onMenuToggle }) {
   
 
         <div className="flex items-center gap-2 flex-shrink-0 animate-slide-left">
+          {/* Mobile cart button - visible on small screens */}
+          {itemCount > 0 && (
+            <button onClick={() => navigate('/pos?cart=1')}
+              title="Cart"
+              className="md:hidden flex-shrink-0 flex items-center justify-center rounded-lg text-slate-600 hover:text-accent-green hover:bg-accent-green/10 transition-all duration-200 active:scale-95"
+              style={{ width: '34px', height: '34px' }}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4 text-accent-green">
+                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+              </svg>
+              <span className="absolute mt-6 text-accent-green font-display text-[9px] font-bold">{itemCount}</span>
+            </button>
+          )}
+
           <div className="md:hidden flex-shrink-0 rounded-lg flex items-center justify-center font-display font-bold text-[10px] text-accent-green transition-all duration-300"
             style={{ width: '24px', height: '24px', background: 'rgba(34,197,94,0.15)', border: '1px solid rgba(34,197,94,0.3)' }}>
             {user?.name?.[0]?.toUpperCase() || '?'}
