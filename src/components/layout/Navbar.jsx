@@ -60,7 +60,7 @@ export default function Navbar({ onMenuToggle }) {
       <div className="flex items-center gap-2 md:gap-4">
         {/* Cart badge - hide on small mobile */}
         {itemCount > 0 && (
-          <button onClick={() => navigate('/pos')}
+          <button onClick={() => navigate('/pos?cart=1')}
             className="hidden sm:flex items-center gap-2 bg-accent-green/10 hover:bg-accent-green/20 border border-accent-green/30 rounded-lg px-2 md:px-3 py-1.5 transition-all duration-200 flex-shrink-0 active:scale-95 animate-slide-up">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-3 h-3 md:w-4 md:h-4 text-accent-green">
               <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>

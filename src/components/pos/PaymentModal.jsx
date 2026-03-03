@@ -31,7 +31,12 @@ export default function PaymentModal({ isOpen, onClose }) {
     setLoading(true);
     try {
       const { data } = await createOrderAPI({
-        items: items.map(i => ({ product: i._id, quantity: i.quantity })),
+        items: items.map(i => {
+          if (i._parentId && i.variantId) {
+            return { product: i._parentId, variant: i.variantId, quantity: i.quantity };
+          }
+          return { product: i._id, quantity: i.quantity };
+        }),
         paymentMethod,
         amountPaid: paymentMethod === 'cash' ? parseFloat(amountPaid) : total,
         discountAmount: discount,
