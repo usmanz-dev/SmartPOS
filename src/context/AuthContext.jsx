@@ -12,6 +12,7 @@ export const loginThunk = createAsyncThunk('auth/login', async (credentials, { r
   }
 });
 
+
 const getStoredUser = () => {
   try { return JSON.parse(localStorage.getItem('user')); } catch { return null; }
 };
