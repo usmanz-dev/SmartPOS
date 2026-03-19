@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL || 'https://smartpos-backend-fb5i.vercel.app/api',
   headers: { 'Content-Type': 'application/json' },
 });
 
